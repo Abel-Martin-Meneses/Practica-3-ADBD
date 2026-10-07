@@ -13,7 +13,7 @@ Esta entidad fuerte representa las instalaciones físicas y locales de la empres
     *   **Longitud:** Atributo simple numérico (ej. `-16.3159`).
 
 ### Entidad: ZONA
-Representa las distintas áreas funcionales en las que se divide cada vivero (almacén, exterior, etc.). Al no tener sentido su existencia sin un vivero que la albergue, se modela como una entidad débil por dependencia en identificación.
+Representa las distintas áreas funcionales en las que se divide cada vivero (almacén, exterior, etc.). Al no tener sentido su existencia sin un vivero que la albergue, se modela como una entidad débil por dependencia de existencia.
 *   **Código Zona:** Atributo discriminante de la zona dentro del vivero. *Dominio: Cadena alfanumérica corta (ej. `Z-EXT`).*
 *   **Nombre Zona:** Atributo descriptor para nombrar el área. *Dominio: Cadena de texto (ej. `Zona Exterior`).*
 *   **Georreferenciación:** Atributo compuesto que ubica específicamente esa zona.
@@ -58,10 +58,21 @@ Representa las compras formalizadas que realizan los clientes y que deben ser ge
 
 ## Descripción de las Relaciones
 
-*   **Tiene (VIVERO - ZONA):** Relación de dependencia en identificación con cardinalidad global **1:N**. Un Vivero puede contener múltiples zonas `(1,N)`. Por su parte, la Zona tiene una participación de `(1,1)`, indicando que pertenece a un único Vivero de manera obligatoria.
+*   **Tiene (VIVERO - ZONA):** Relación de dependencia de existencia con cardinalidad global **1:N**. Un Vivero puede contener múltiples zonas `(1,N)`. Por su parte, la Zona tiene una participación de `(1,1)`, indicando que pertenece a un único Vivero de manera obligatoria.
 *   **Dispone de (ZONA - PRODUCTO):** Relación de cardinalidad **N:M**. Una Zona puede disponer de múltiples productos `(1,N)` y un Producto puede estar ubicado en múltiples zonas `(1,N)`. Incluye el atributo propio **Cantidad Stock** para indicar el volumen exacto de un producto en un área determinada.
-*   **Desempeña (ZONA - EMPLEADO - TAREA):** Relación ternaria que funciona como el registro de asignaciones del empleado. Un Empleado desempeña múltiples tareas a lo largo del tiempo `(0,N)` y una Tarea es desempeñada por múltiples empleados `(0,N)`. La Zona figura con una participación de `(1,1)` ya que un empleado realiza una tarea únicamente en una zona. De esta relación dependen los atributos propios **Puesto**, **Productividad**, **Fecha Inicio** y **Fecha Fin**, los cuales documentan el histórico de rendimiento.
+*   **Desempeña (ZONA - EMPLEADO - TAREA):** Relación ternaria que funciona como el registro de asignaciones del empleado. Un Empleado desempeña múltiples tareas a lo largo del tiempo `(0,N)` y una Tarea es desempeñada por múltiples empleados `(0,N)`. La Zona figura con una participación de `(1,1)` ya que un empleado realiza una tarea únicamente en una zona. De esta relación dependen los atributos propios **Productividad**, **Fecha Inicio** y **Fecha Fin**, los cuales documentan el histórico de rendimiento.
 *   **Gestiona (EMPLEADO - PEDIDO):** Relación de cardinalidad **1:N**. Un Empleado puede gestionar desde ninguno hasta múltiples pedidos `(0,N)`. Sin embargo, cada Pedido está vinculado a un único Empleado responsable `(1,1)`.
 *   **Compra (CLIENTE - PEDIDO):** Relación de cardinalidad **1:N**. Un Cliente puede realizar múltiples pedidos en el sistema `(0,N)`, mientras que un Pedido siempre pertenece a un único Cliente `(1,1)`.
 *   **Contiene (PEDIDO - PRODUCTO):** Relación de cardinalidad **N:M**. Un Pedido incluye al menos un producto y puede contener varios `(1,N)`, y un Producto puede haber sido vendido en ninguno o en múltiples pedidos `(0,N)`. Lleva asociados los atributos propios **Cantidad** y **Precio Venta** para detallar cada línea de compra.
 *   **Jerarquía "Es un tipo de" (CLIENTE - MIEMBRO):** Relación de especialización con jerarquía parcial. Un Miembro es obligatoriamente un Cliente `(1,1)` en la rama superior, pero un Cliente puede o no ser Miembro del programa de fidelización `(0,1)` en la rama inferior.
+
+---
+
+## Imagen
+
+
+---
+
+## Autores 
+*   Abel Martín Meneses --> alu0101660011@ull.edu.es
+*   Carlos Pérez Gómez --> alu0101564005@ull.edu.es
