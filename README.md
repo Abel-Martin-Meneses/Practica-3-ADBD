@@ -1,5 +1,9 @@
 # Diseño Conceptual - Modelo Entidad/Relación: Tajinaste S.A.
 
+## Imagen
+
+![PNG modelo](Práctica_3_ADBD.drawio.png)
+
 A continuación, se detalla el diseño conceptual elaborado para la gestión de la red de viveros, detallando sus entidades, atributos y relaciones.
 
 ## Descripción de Entidades y Atributos
@@ -65,14 +69,6 @@ Representa las compras formalizadas que realizan los clientes y que deben ser ge
 *   **Compra (CLIENTE - PEDIDO):** Relación de cardinalidad **1:N**. Un Cliente puede realizar múltiples pedidos en el sistema `(0,N)`, mientras que un Pedido siempre pertenece a un único Cliente `(1,1)`.
 *   **Contiene (PEDIDO - PRODUCTO):** Relación de cardinalidad **N:M**. Un Pedido incluye al menos un producto y puede contener varios `(1,N)`, y un Producto puede haber sido vendido en ninguno o en múltiples pedidos `(0,N)`. Lleva asociados los atributos propios **Cantidad** y **Precio Venta** para detallar cada línea de compra.
 *   **Jerarquía "Es un tipo de" (CLIENTE - MIEMBRO):** Relación de especialización con jerarquía parcial. Un Miembro es obligatoriamente un Cliente `(1,1)` en la rama superior, pero un Cliente puede o no ser Miembro del programa de fidelización `(0,1)` en la rama inferior.
-
----
-
-## Imagen
-
-![PNG modelo](Práctica_3_ADBD.drawio.png)
-
-
 ---
 
 ## Autores 
