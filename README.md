@@ -52,8 +52,8 @@ Modela de forma exclusiva a los clientes suscritos al programa Tajinaste Plus. S
 ### Entidad: PEDIDO
 Representa las compras formalizadas que realizan los clientes y que deben ser gestionadas por los empleados. Es una entidad fuerte.
 *   **Código Pedido:** Atributo identificador unívoco del pedido en el sistema. *Dominio: Cadena alfanumérica.*
-*   **Precio Total:** Atributo descriptor que almacena el importe total de la compra. *Dominio: Numérico decimal.* *(Nota: en tu diagrama tienes el óvalo duplicado; recuerda borrar uno antes de entregar).*
-
+*   **Precio Total:** Atributo descriptor que almacena el importe total de la compra. *Dominio: Numérico decimal.*
+*   **Fecha Compra:** Atributo descriptor que guarda la fecha en la que se realizó la compra. *Dominio: Fecha*
 ---
 
 ## Descripción de las Relaciones
@@ -69,6 +69,8 @@ Representa las compras formalizadas que realizan los clientes y que deben ser ge
 ---
 
 ## Imagen
+
+![PNG modelo](Práctica_3_ADBD.drawio.png)
 
 
 ---
